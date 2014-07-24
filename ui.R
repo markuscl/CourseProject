@@ -18,17 +18,22 @@ shinyUI(fluidPage(
       # plus looping
       sliderInput("year", "Year:", min=2009,max=2060, value= 2009, format = "0000",
                   step = 1, animate=
-                    animationOptions(interval=300, loop=TRUE))
+                    animationOptions(interval=300, loop=TRUE)),
+      
+      h3("Assumptions"),
+      h2(textOutput('sum')),      
+      h4(textOutput('assumptions')),
+      h6(textOutput('fertility')),
+      h6(textOutput('life')),
+      h6(textOutput('mig')),
+      
+      a(href="https://www.destatis.de/EN/FactsFigures/SocietyState/Population/Population.html", "Source: German Federal Statistics Office")
+      
     ),    
     # Show legend for assumptions behind the different forecast scenarios
     mainPanel(      
-      plotOutput("pyramid", height="600px"),      
-       h3("Assumptions"),
-       h2(textOutput('sum')),      
-       h4(textOutput('assumptions')),
-       h6(textOutput('fertility')),
-       h6(textOutput('life')),
-       h6(textOutput('mig'))
+      plotOutput("pyramid", height="600px")   
+    
       
           )
   )
